@@ -3,14 +3,13 @@ language: php
 php:
   - 7.1
 
-before_script:
-  - cp .env.travis.ci .env
-  - composer install --dev --prefer-source --no-interaction
-  - php artisan key:generate
-  - php artisan migrate --seed
+sudo: false
 
-script:
-  - vendor/bin/phpunit --testdox --coverage-text tests
+install:
+  - composer install --prefer-dist --optmize-autoloader --quiet
+  - php artisan key:generate
+
+script: phpunit -c phpunit.xml --coverage-text
 
 notifications:
   email:
