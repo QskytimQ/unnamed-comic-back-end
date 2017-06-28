@@ -1,11 +1,16 @@
 language: php
 
 php:
-  - 5.6
   - 7.1
 
-install:
-  - composer install --prefer-dist --no-dev --optimize-autoloader --quiet
+before_script:
+  - cp .env.travis.ci .env
+  - composer install --dev --prefer-source --no-interaction
+  - php artisan key:generate
+  - php artisan migrate --seed
+
+script:
+  - vendor/bin/phpunit --testdox --coverage-text tests
 
 notifications:
   email:
@@ -13,5 +18,3 @@ notifications:
       - s1410432005@gms.nutc.edu.tw
     on_success: always
     on_failure: always
-
-script: phpunit -c phpunit.xml --coverage-text
