@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - 5.6
+  - 7.1
+
+install:
+  - composer install --prefer-dist --no-dev --optimize-autoloader --quiet
+
+notifications:
+  email:
+    recipients:
+      - s1410432005@gms.nutc.edu.tw
+    on_success: always
+    on_failure: always
+
+script: phpunit -c phpunit.xml --coverage-text
