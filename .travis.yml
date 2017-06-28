@@ -6,7 +6,7 @@ php:
 sudo: false
 
 install:
-  - composer install --prefer-dist --optmize-autoloader --quiet
+  - composer install --prefer-dist --optimize-autoloader --quiet
   - php artisan key:generate
 
 script: phpunit -c phpunit.xml --coverage-text
