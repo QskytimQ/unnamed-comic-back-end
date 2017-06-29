@@ -19,6 +19,7 @@ install:
 script:
   - ./vendor/edgedesign/phpqa/phpqa --tools phpcs:9,phpmd:2,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
   - phpunit -c phpunit.xml --coverage-text
+  - vendor/squizlabs/php_codesniffer/bin/phpcs -p --extensions=php --standard=PSR2  --ignore=*/vendor/* "./"
 
 notifications:
   email:
