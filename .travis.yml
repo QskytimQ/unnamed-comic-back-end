@@ -17,7 +17,7 @@ install:
   - php artisan key:generate
 
 script:
-  - phpqa --tools phpcs:9,phpmd:2,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
+  - ./vendor/edgedesign/phpqa/phpqa --tools phpcs:9,phpmd:2,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
   - phpunit -c phpunit.xml --coverage-text
 
 notifications:
