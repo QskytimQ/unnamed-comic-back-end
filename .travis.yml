@@ -17,9 +17,8 @@ install:
   - php artisan key:generate
 
 script:
-  - ./vendor/edgedesign/phpqa/phpqa --ignoredDirs bootstrap,storage,vendor --tools phpcs:5,phpmd:2,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
+  - ./vendor/edgedesign/phpqa/phpqa --ignoredDirs bootstrap,database,resource,storage,vendor --tools phpcs:0,phpmd:2,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
   - phpunit -c phpunit.xml --coverage-text
-  - vendor/squizlabs/php_codesniffer/bin/phpcs -p --extensions=php --standard=PSR2  --ignore=*/bootstrap/*,*/storage/*,*/vendor/* "./"
 
 notifications:
   email:
