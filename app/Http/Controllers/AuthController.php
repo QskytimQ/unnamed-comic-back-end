@@ -18,8 +18,9 @@ class AuthController extends Controller
         $data = $request->only('name', 'email', 'password');
         $validator = $this->registerValidator($data);
 
-        if ($validator->fails())
+        if ($validator->fails()) {
             return response()->json(['status' => 'error', 'message' => $validator->errors()->all()], 400);
+        }
 
         $this->userRepo->create($data);
 
