@@ -1,0 +1,26 @@
+language: php
+
+services:
+  - mysql
+
+php:
+  - 7.1
+
+sudo: false
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+
+install:
+  - composer install --prefer-dist --optimize-autoloader --quiet
+  - cp .env.travis .env
+  - php artisan key:generate
+
+script: phpunit -c phpunit.xml --coverage-text
+
+notifications:
+  email:
+    recipients:
+      - s1410432005@gms.nutc.edu.tw
+    on_success: always
+    on_failure: always
