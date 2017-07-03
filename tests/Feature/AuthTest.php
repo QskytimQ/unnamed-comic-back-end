@@ -50,6 +50,6 @@ class AuthTest extends TestCase
             'email' => 'test@test.com',
             'password' => 'secret',
         ]);
-        $response->assertStatus(200);       
+        $response->assertStatus(200);
     }
 }
