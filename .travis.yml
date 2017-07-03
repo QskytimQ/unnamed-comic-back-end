@@ -15,6 +15,7 @@ install:
   - composer install --prefer-dist --optimize-autoloader --quiet
   - cp .env.travis .env
   - php artisan key:generate
+  - php artisan migrate:refresh --seed
 
 script:
   - ./vendor/edgedesign/phpqa/phpqa --output cli --ignoredDirs bootstrap,database,resource,storage,vendor --tools phpcs:0,phpmd:2,phpcpd:0,phpmetrics,pdepend
