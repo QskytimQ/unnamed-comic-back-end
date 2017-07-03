@@ -13,4 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('auth/register', 'AuthController@register');
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('register', 'AuthController@register');
+    Route::post('/', 'AuthController@auth');
+});
