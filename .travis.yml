@@ -18,7 +18,7 @@ install:
   - php artisan migrate:refresh --seed
 
 script:
-  - ./vendor/edgedesign/phpqa/phpqa --output cli --ignoredDirs bootstrap,database,resource,storage,vendor --tools phpcs:0,phpmd:2,phpcpd:0,phpmetrics,pdepend
+  - ./vendor/edgedesign/phpqa/phpqa --output cli --ignoredDirs bootstrap,database,resource,storage,vendor --tools phpcs:0,phpmd:1,phpcpd:0,phpmetrics,pdepend
   - phpunit -c phpunit.xml --coverage-text
 
 notifications:
