@@ -33,7 +33,7 @@ class PublishController extends Controller
         if ($cover = $data['cover']) {
             $extension = explode('/', File::mimeType($cover))[1];
             $data['cover'] = time().'.'.$extension;
-            $this->saveFile('comics/'.$comic->id.'/covers/'.$data['cover'].'.'.$extension, $cover);
+            $this->saveFile('comics/'.$comic->id.'/covers/'.$data['cover'], $cover);
             $this->comicRepo->updateCover($comic['id'], $data['cover']);
             $comic = $this->comicRepo->show($comic['id']);
         }
