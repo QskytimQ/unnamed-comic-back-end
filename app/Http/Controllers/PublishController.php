@@ -46,14 +46,15 @@ class PublishController extends Controller
 
     private function saveFile($path, $file)
     {
-        return 
+        return
             Storage::put(
                 $path,
                 file_get_contents($file->getRealPath())
             );
     }
 
-    private function comicValidator(array $data) {
+    private function comicValidator(array $data)
+    {
         return Validator::make($data, [
             'name' => 'required|max:255',
             'summary' => 'required|max:255',
