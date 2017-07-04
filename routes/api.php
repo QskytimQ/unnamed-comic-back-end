@@ -18,4 +18,10 @@ Route::group(['middleware' => 'cors'], function () {
         Route::post('/', 'AuthController@auth');
         Route::post('register', 'AuthController@register');
     });
+
+    Route::group(['middleware' => 'jwt.auth'], function () {
+        Route::group(['prefix' => 'publish'], function () {
+            Route::post('/', 'PublishController@comic');
+        });
+    });
 });
